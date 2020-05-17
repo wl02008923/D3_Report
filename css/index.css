@@ -1,0 +1,53 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 3em 0;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  color: #585455;
+  font-family: "Microsoft JhengHei";
+}
+
+.buttons {
+  padding-left: 50%;
+  width: 100vw;
+  transform: translate(-25%, 0);
+}
+
+#chart {
+  padding-left: 3vw;
+}
+
+.d3-tip {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  padding: 10px 20px;
+  background: #585455;
+  color: #fff;
+  border: solid 1px #585455;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  font-size: 10px;
+  box-sizing: border-box;
+  display: inline;
+  width: 100%;
+  line-height: 1;
+  color: #585455;
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
