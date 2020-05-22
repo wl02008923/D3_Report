@@ -18,7 +18,7 @@ function draw(dataset) {
 
   // const white = "#fff";
   // const orange = "#d85221";
-  const green = "#aed581";
+  //const green = "#aed581";
 
   let formatRound = d3.format(".0f");
   let formatComma = d3.format(",d");
@@ -29,7 +29,7 @@ function draw(dataset) {
     .attr('height', height);
 
   let xScale = d3.scaleBand()
-    .domain(["December", "January", "February", "March"])
+    .domain(["12月", "1月", "2月", "3月"])
     .range([margin.left, width - margin.right])
     .padding(0.1);
 
@@ -51,7 +51,7 @@ function draw(dataset) {
     .call(d3.axisLeft(yScale)
       .tickPadding(padding))
     .selectAll('text')
-    .style('fill', green)
+    .style('fill', "black")
     .style('font-weight', 'bold');
   // x axis title
   axis.append('text')
@@ -84,7 +84,7 @@ function draw(dataset) {
     .datum(data)
     .attr('class', 'line')
     .attr('fill', 'none')
-    .attr('stroke', green)
+    .attr('stroke', "black")
     .attr('stroke-width', 2)
     .attr('d', d3.line()
       .x(d => xScale(d.month) + xScale.bandwidth() / 2)
@@ -94,7 +94,7 @@ function draw(dataset) {
   line.attr('stroke-dasharray', totalLength + " " + totalLength)
     .attr('stroke-dashoffset', totalLength)
     .transition()
-    .duration(2000)
+    .duration(1500)
     .ease(d3.easeLinear)
     .attr('stroke-dashoffset', 0);
 
@@ -105,13 +105,13 @@ function draw(dataset) {
     .attr('cx', d => xScale(d.month) + xScale.bandwidth() / 2)
     .attr('cy', d => yScale(d.number))
     .attr('fill', d => "white")
-    .attr('stroke', green)
+    .attr('stroke', "black")
     .attr('stroke-width', 2)
     .attr('r', 0)
     .on("mouseover", line_tooltip.show)
     .on("mouseout", line_tooltip.hide)
     .transition()
-    .duration(500)
+    .duration(375)
     .delay((d, i) => i * 500)
     .ease(d3.easeLinear)
     .attr('r', 5);
@@ -127,7 +127,7 @@ function draw(dataset) {
     .attr('font-size', 12)
     .attr('opacity', 0)
     .transition()
-    .duration(500)
+    .duration(375)
     .delay((d, i) => i * 500)
     .ease(d3.easeLinear)
     .attr('opacity', 1);
